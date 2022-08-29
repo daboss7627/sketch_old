@@ -7,7 +7,7 @@ read builder
 echo "What system would you like to build?"
 echo "Mobian		skiffOS"
 echo "Ubuntu Touch	Arch linux"
-echo "Mobian (Kernel)"
+echo "Mobian (Kernel)	portapack"
 read systemz
 
 if [ $builder = 'yes' ]; then           
@@ -25,6 +25,10 @@ if [ $builder = 'yes' ]; then
 				else
 					if [ $systemz = 'arch' ]; then
 						arch
+					else
+						if [ $systemz = 'portapack' ]; then
+							mayhem
+
 	elif [ $builder = 'no' ]; then
 		exit 0
    fi
@@ -60,11 +64,12 @@ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j4 bindeb-pkg KERNELRELEASE="5
 
 
 skiffos() {
-
+echo "bye bye birdie"
 }
 
 
 arch() {
-
+echo "hi hi birdie"
 
 }
+
