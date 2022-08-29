@@ -4,37 +4,47 @@
 
 echo "Do you want to build a system?"
 read builder
+if [ $builder = 'yes' ]; then
 echo "What system would you like to build?"
 echo "Mobian		skiffOS"
-echo "Ubuntu Touch	Arch linux"
+echo "(Ubuntu) Touch	Arch linux"
 echo "Mobian (Kernel)	portapack"
-read systemz
+read systemz    
+case $systemz in
 
-if [ $builder = 'yes' ]; then           
-        if [ $systemz = 'mobian' ]; then
-              mobian
-            else
-        	if [ $systemz = 'ubuntu touch' ]; then
-			ubuntu
-		else
-			if [ $systemz = 'kernel' ]; then
-				kernel
-			else		
-				if [ $systemz = 'skiffos' ]; then
-					skiff
-				else
-					if [ $systemz = 'arch' ]; then
-						arch
-					else
-						if [ $systemz = 'portapack' ]; then
-							mayhem
+  mobian)
+    mobian
+    ;;
 
-	elif [ $builder = 'no' ]; then
-		exit 0
-   fi
-  fi
+  ubuntu)
+    ubuntu
+    ;;
+
+  kernel)
+    kernel
+    ;;
+
+   skiffos)  
+    skiff
+    ;;
+
+   arch)
+    arc
+    ;;
+
+   portapack)
+    mayhem
+    ;;
+  
+   *)
+    echo -n "unknown"
+    ;;
+esac
+else
+#elif [ $builder = 'no' ]; then
+echo "ok"
+exit 0
 fi
-
 
 mobian() {
 cd ~/work
