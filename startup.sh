@@ -147,13 +147,19 @@ if [ $wall = 'a' ]; then
     elif [ $wall == 'c' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
         sudo cp ~/work/sketch/sources.list.c /etc/apt/sources.list
-        echo "Adding GPG Keys"
+	if [ -f "$LOCK" ]; then
+    	echo "$LOCK exists."
+	else       
+	echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+	echo "$LOCK doesnt exists."
+   	sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/ubuntu-keys-$now.gpg
+	fi 
      #else
     elif [ $wall == 'd' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
