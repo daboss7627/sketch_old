@@ -213,7 +213,7 @@ mvSource
 #rmDock
 instDock
 update
-buildKernel
+#buildKernel
 clunk
 #Connect
 voice
