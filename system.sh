@@ -70,6 +70,14 @@ echo "bye bye birdie"
 
 arch() {
 echo "hi hi birdie"
-
 }
 
+mayhem() {
+cd ~/work
+git clone --recurse-submodules https://github.com/daboss7627/portapack-mayhem.git
+cd portapack-mayhem
+mkdir build
+cd build
+cmake ..
+make firmware
+}
