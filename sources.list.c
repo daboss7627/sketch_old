@@ -22,7 +22,7 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-updates universe
 ## your rights to use the software. Also, please note that software in 
 ## multiverse WILL NOT receive any review or updates from the Ubuntu
 ## security team.
-deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu/ hirsute multiverse
+deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu/ jammy multiverse
 deb-src http://us.archive.ubuntu.com/ubuntu/ jammy multiverse
 deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu/ jammy-updates multiverse
 deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-updates multiverse
@@ -97,17 +97,17 @@ deb-src http://ports.ubuntu.com/ubuntu-ports jammy-backports main multiverse res
 #deb http://http.kali.org/kali kali-rolling main non-free contrib
 #deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 
-deb http://deb.debian.org/debian/ sid main contrib non-free
-deb-src http://deb.debian.org/debian/ sid main contrib non-free
+#deb http://deb.debian.org/debian/ sid main contrib non-free
+#deb-src http://deb.debian.org/debian/ sid main contrib non-free
 
-deb http://deb.debian.org/debian/ testing-updates main contrib non-free
-deb-src http://deb.debian.org/debian/ testing-updates main contrib non-free
+#deb http://deb.debian.org/debian/ testing-updates main contrib non-free
+#deb-src http://deb.debian.org/debian/ testing-updates main contrib non-free
 
-deb http://deb.debian.org/debian-security testing-security main
-deb-src http://deb.debian.org/debian-security testing-security main
+#deb http://deb.debian.org/debian-security testing-security main
+#deb-src http://deb.debian.org/debian-security testing-security main
 
-deb http://deb.debian.org/debian buster-backports main
-deb-src  http://deb.debian.org/debian buster-backports main
+#deb http://deb.debian.org/debian buster-backports main
+#deb-src  http://deb.debian.org/debian buster-backports main
 
 
 # This system was installed using small removable media
