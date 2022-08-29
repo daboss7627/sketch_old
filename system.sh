@@ -1,51 +1,6 @@
 #!/bin/bash
 
 
-
-echo "Do you want to build a system?"
-read builder
-if [ $builder = 'yes' ]; then
-echo "What system would you like to build?"
-echo "Mobian		skiffOS"
-echo "(Ubuntu) Touch	Arch linux"
-echo "Mobian (Kernel)	portapack"
-read systemz    
-case $systemz in
-
-  mobian)
-    mobian
-    ;;
-
-  ubuntu)
-    ubuntu
-    ;;
-
-  kernel)
-    kernel
-    ;;
-
-   skiffos)  
-    skiff
-    ;;
-
-   arch)
-    arc
-    ;;
-
-   portapack)
-    mayhem
-    ;;
-  
-   *)
-    echo -n "unknown"
-    ;;
-esac
-else
-#elif [ $builder = 'no' ]; then
-echo "ok"
-exit 0
-fi
-
 mobian() {
 cd ~/work
 git clone https://gitlab.com/mobian1/mobian-recipes.git
@@ -91,3 +46,39 @@ cd build
 cmake ..
 make firmware
 }
+
+
+#echo "Do you want to build a system?"
+#read builder
+#if [ $builder = 'yes' ]; then
+
+	echo "What system would you like to build?"
+	echo "Mobian		skiffOS"
+	echo "(Ubuntu) Touch	Arch linux"
+	echo "Mobian (Kernel)	portapack"
+
+	read systemz
+	case $systemz 
+	in
+
+	mobian) mobian ;;
+
+	ubuntu) ubuntu ;;
+
+	kernel) kernel ;;
+
+	skiffos) skiff ;;
+
+	arch) arch ;;
+
+	portapack) mayhem ;;
+
+	*) exit ;;
+
+	esac
+
+	#else
+	#elif [ $builder = 'no' ]; then
+	#echo "ok"
+	#exit 0
+#fi
