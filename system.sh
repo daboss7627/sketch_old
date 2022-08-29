@@ -5,35 +5,41 @@
 echo "Do you want to build a system?"
 read builder
 echo "What system would you like to build?"
-echo "Mobian"
-echo "skiffOS"
-echo "Ubuntu Touch"
-echo "Arch linux"
+echo "Mobian		skiffOS"
+echo "Ubuntu Touch	Arch linux"
+echo "Mobian (Kernel)"
 read systemz
 
 if [ $builder = 'yes' ]; then           
         if [ $systemz = 'mobian' ]; then
-            sudo dpkg --add-architecture i386
-            sudo dpkg --add-architecture armhf
-            sudo dpkg --add-architecture arm64
-            #sudo dpkg --remove-architecture armhf
-            #sudo dpkg --remove-architecture armel
-            #sudo dpkg --remove-architecture arm64
+              mobian
             else
         	if [ $systemz = 'ubuntu touch' ]; then
-            		sudo dpkg --add-architecture armhf
-            		sudo dpkg --add-architecture amd64
-            		sudo dpkg --add-architecture i386
+			ubuntu
+		else
+			if [ $systemz = 'kernel' ]; then
+				kernel
 	elif [ $builder = 'no' ]; then
-    ####remove all architecture except machines
-    #rm != $MACHINE_TYPE
-	    sudo dpkg --remove-architecture i386
-            sudo dpkg --remove-architecture armhf
-            #sudo dpkg --remove-architecture armel
-            #sudo dpkg --remove-architecture arm64
-	    #sudo dpkg --remove-architecture aarch64
-	else
 		exit 0
    fi
   fi
 fi
+
+mobian() {
+cd ~/work
+git clone https://gitlab.com/mobian1/mobian-recipes.git
+cd mobian-recipes
+./build.sh -d
+}
+
+ubuntu() {
+cd ~/work
+git clone https://gitlab.com/ubports/core/rootfs-builder-debos.git
+cd rootfs-builder-debos
+debos-docker -m 5G pinephone.yaml
+}
+
+kernel() {
+
+
+}
