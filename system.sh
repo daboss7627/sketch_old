@@ -5,8 +5,13 @@ mobian() {
 cd ~/work
 git clone https://gitlab.com/mobian1/mobian-recipes.git
 cd mobian-recipes
-./build.sh -d -t pinephone -x sid -o
-./build.sh -d -t pinephonepro -x sid -o
+echo "pinephone or pinephone (pro)"
+read pine
+if [ $pine = 'pinephone' ]; then
+    xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephone -x sid -o; bash"' -T "PinePhone" &
+else
+xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephonepro -x sid -o; bash"' -T "PinePhone Pro" &
+fi
 }
 
 
@@ -14,7 +19,7 @@ ubuntu() {
 cd ~/work
 git clone https://gitlab.com/ubports/core/rootfs-builder-debos.git
 cd rootfs-builder-debos
-debos-docker -m 5G pinephone.yaml
+sudo debos-docker -m 5G pinephone.yaml
 }
 
 
@@ -82,3 +87,27 @@ make firmware
 	#echo "ok"
 	#exit 0
 #fi
+
+yes() {
+echo "yes"
+}
+
+
+no() {
+echo "no"
+}
+
+	echo "Upload GIT Files?"
+	echo "Yes/No"
+
+	read gitz
+	case $gitz 
+	in
+
+	yes) yes ;;
+
+	no) no ;;
+
+	*) exit ;;
+
+	esac

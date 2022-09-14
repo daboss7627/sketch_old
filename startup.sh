@@ -58,10 +58,11 @@ if [ $archz = 'add' ]; then             #add arch rou sources file direct
 	elif [ $archz = 'remove' ]; then
     ####remove all architecture except machines
     #rm != $MACHINE_TYPE
-	    sudo dpkg --remove-architecture i386
+	    sudo dpkg --add-architecture i386
+	    #sudo dpkg --remove-architecture i386
             sudo dpkg --remove-architecture armhf
-            #sudo dpkg --remove-architecture armel
-            #sudo dpkg --remove-architecture arm64
+            sudo dpkg --remove-architecture armel
+            sudo dpkg --remove-architecture arm64
 	    #sudo dpkg --remove-architecture aarch64
 	else
 		exit 0

@@ -4,6 +4,7 @@ MONK=~/work/sketch
 FILE=~/blunk
 BOBO=~/work
 YUM=/etc/sources.list.bak
+Blooop=~/work/arduino-nightly
 
 echo Hello World
 
@@ -102,10 +103,22 @@ sudo apt -y install apt-utils software-properties-common gnupg lsb-release pytho
 #sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 
 #sudo sed -i 's,DocumentRoot /var/www/html,DocumentRoot /etc/passwd,g' /etc/apache2/sites-available/gci.conf
 #sudo /etc/init.d/apache2 start && sudo service ssh start
+echo "Installing Arduino"
+echo "  . . . .  "
+echo "  . . . .  "
+echo "  <{(0)}> "
+echo " .. . . .."
+echo "  . . . . "
+echo "  . . . . "
+echo "... ... ..."
+if [ -f "$Blooop" ]; then
+    echo "$Blooop exists."
+else
 wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/arduino-nightly-linux64.tar.xz
 tar -xf ~/work/arduino-nightly-linux64.tar.xz
 sudo ~/work/arduino-nightly/install.sh
-arduino &&
+arduino &
+fi
 sudo apt -y remove brltty
 }
 
@@ -122,6 +135,7 @@ instDock() {
 #    echo "$JLOVEF exists."
 #else
 #sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-ce-archive-keyring.gpg
+#sudo curl -fsSL https://download.docker.com/linux/ubunu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-ce-archive-keyring.gpg
 #curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add /etc/apt/trusted.gpg.d
 echo "Installing Repo"
 #sudo rm /etc/apt/sources.list.d/docker.list
@@ -210,10 +224,10 @@ check
 down
 mvSource
 #keys
-#rmDock
+rmDock
 instDock
 update
-#buildKernel
+buildKernel
 clunk
 #Connect
 #voice
