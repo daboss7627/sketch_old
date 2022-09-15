@@ -229,9 +229,9 @@ instDock
 update
 buildKernel
 clunk
-Connect
-voice
-fire
+#Connect
+#voice
+#fire
 #sut
 cleanUP
 build
