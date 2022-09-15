@@ -229,7 +229,7 @@ instDock
 update
 buildKernel
 clunk
-#Connect
+#bConnect
 #voice
 #fire
 #sut
