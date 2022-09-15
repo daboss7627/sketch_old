@@ -4,7 +4,7 @@ MONK=~/work/sketch
 FILE=~/blunk
 BOBO=~/work
 YUM=/etc/sources.list.bak
-Blooop=~/work/arduino-nightly
+BOGO=~/work/arduino-nightly
 
 echo Hello World
 
@@ -103,7 +103,6 @@ sudo apt -y install apt-utils software-properties-common gnupg lsb-release pytho
 #sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 
 #sudo sed -i 's,DocumentRoot /var/www/html,DocumentRoot /etc/passwd,g' /etc/apache2/sites-available/gci.conf
 #sudo /etc/init.d/apache2 start && sudo service ssh start
-echo "Installing Arduino"
 echo "  . . . .  "
 echo "  . . . .  "
 echo "  <{(0)}> "
@@ -111,9 +110,10 @@ echo " .. . . .."
 echo "  . . . . "
 echo "  . . . . "
 echo "... ... ..."
-if [ -f "$Blooop" ]; then
-    echo "$Blooop exists."
+if [ -f "$BOGO" ]; then
+    echo "$BOGO exists."
 else
+echo "Installing Arduino"
 wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/arduino-nightly-linux64.tar.xz
 tar -xf ~/work/arduino-nightly-linux64.tar.xz
 sudo ~/work/arduino-nightly/install.sh
@@ -181,7 +181,7 @@ websockify -D --web=/usr/share/novnc/ --cert=/etc/ssl/novnc.pem 6080 localhost:5
 }
 
 voice() {
-sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v12.6.x/install_pbx_docker.sh | sudo bash
+sudo ./install_pbx_docker.sh | sudo bash
 sudo docker container run -d --name portsip-pbx --restart=always --cap-add=SYS_PTRACE --network=host -v /var/lib/portsip:/var/lib/portsip -v /etc/localtime:/etc/localtime:ro -e POSTGRES_PASSWORD="123456" -e POSTGRES_LISTEN_ADDRESSES="*" -e IP_ADDRESS="618104708054-m0mqlm35l2ahieavnib6emtan2k95ps9.apps.googleusercontent.com" portsip/pbx:12
 #IP_ADDRESS="66.175.222.20" 
 }
@@ -229,9 +229,9 @@ instDock
 update
 buildKernel
 clunk
-#Connect
-#voice
-#fire
+Connect
+voice
+fire
 #sut
 cleanUP
 build
