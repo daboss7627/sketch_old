@@ -5,6 +5,7 @@ mobian() {
 cd ~/work
 git clone https://gitlab.com/mobian1/mobian-recipes.git
 cd mobian-recipes
+git pull
 echo "pinephone or pinephone (pro)"
 read pine
 if [ $pine = 'pinephone' ]; then
@@ -19,6 +20,7 @@ ubuntu() {
 cd ~/work
 git clone https://gitlab.com/ubports/core/rootfs-builder-debos.git
 cd rootfs-builder-debos
+git pull
 sudo debos-docker -m 5G pinephone.yaml
 }
 
@@ -27,6 +29,7 @@ kernel() {
 cd ~/work
 git clone -b wip/pp-keyboard https://github.com/smaeul/linux.git
 cd linux
+git pull
 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make defconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig
 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j4 bindeb-pkg KERNELRELEASE="5.9-sunxi64-test" KDEB_PKGVERSION="1"
@@ -34,18 +37,25 @@ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j4 bindeb-pkg KERNELRELEASE="5
 
 
 skiffos() {
-echo "bye bye birdie"
+cd ~/work
+git clone https://github.com/skiffos/SkiffOS.git
+cd skiffos
+git pull
 }
 
 
 arch() {
-echo "hi hi birdie"
+cd ~/work
+git clone https://github.com/dreemurrs-embedded/Pine64-Arch.git
+cd Pine64-Arch
+git pull
 }
 
 mayhem() {
 cd ~/work
 git clone --recurse-submodules https://github.com/daboss7627/portapack-mayhem.git
 cd portapack-mayhem
+git pull
 mkdir build
 cd build
 cmake ..

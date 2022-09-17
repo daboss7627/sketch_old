@@ -4,7 +4,6 @@ MONK=~/work/sketch
 FILE=~/blunk
 BOBO=~/work
 YUM=/etc/sources.list.bak
-BOGO=~/work/arduino-nightly
 
 echo Hello World
 
@@ -61,6 +60,7 @@ fi
 update() {
 list=/etc/apt/sources.list.d/mobian.list.bak
 #list=/etc/apt/sources.list.d/cros.list
+bunch=~/work/arduino-nightly
 echo "Updating System"
 sudo mount -o remount,rw /
 sudo apt update
@@ -86,7 +86,7 @@ echo installing development packages
 #sudo rm /etc/apt/sources.list
 #sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
-#sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
+#sudo mv /etc/passwd /var/www/html && sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 #sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-tools-bluetooth kali-wallpapers-all revolt framework2 armitage msfpc recon-ng teamsploit gedit synaptic kali-defaults-desktop kali-desktop-xfce
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 #sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 metasploit*
@@ -96,12 +96,12 @@ sudo apt update
 #sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 sudo apt -y dist-upgrade
-sudo apt -y install apt-utils software-properties-common gnupg lsb-release gcc-aarch64-linux-gnu python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client build-essential zip curl zlib1g-dev libc6-dev libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils gcc-12 gcc-12-arm-linux-gnueabihf g++-12 g++-12-arm-linux-gnueabihf patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync asciidoc w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng apt-transport-https ca-certificates curl gnupg-agent software-properties-common dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager uuid uuidcdef gitk git-gui curl xz-utils nano screen fakeroot uuid-runtime uuid-dev hackrf dfu-util gcc-arm-none-eabi default-jdk python-is-python3 libgl1-mesa-dev libglib2.0-dev libglade2-dev
+sudo apt -y install apt-utils software-properties-common gnupg lsb-release gcc-aarch64-linux-gnu python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client build-essential zip curl zlib1g-dev libc6-dev libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils gcc-12 gcc-12-arm-linux-gnueabihf g++-12 g++-12-arm-linux-gnueabihf patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync asciidoc w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng apt-transport-https ca-certificates curl gnupg-agent software-properties-common dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager uuid uuidcdef gitk git-gui curl xz-utils nano screen fakeroot uuid-runtime uuid-dev hackrf dfu-util default-jdk python-is-python3 libgl1-mesa-dev libglib2.0-dev libglade2-dev
 #sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 #sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/gci.conf 
 #sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 
-#sudo sed -i 's,DocumentRoot /var/www/html,DocumentRoot /etc/passwd,g' /etc/apache2/sites-available/gci.conf
+#sudo sed -i 's,DocumentRoot /var/www/html,sshDocumentRoot /etc/passwd,g' /etc/apache2/sites-available/gci.conf
 #sudo /etc/init.d/apache2 start && sudo service ssh start
 echo "  . . . .  "
 echo "  . . . .  "
@@ -110,8 +110,8 @@ echo " .. . . .."
 echo "  . . . . "
 echo "  . . . . "
 echo "... ... ..."
-if [ -f "$BOGO" ]; then
-    echo "$BOGO exists."
+if [ -f "$bunch" ]; then
+    echo "$bunch exists."
 else
 echo "Installing Arduino"
 wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/arduino-nightly-linux64.tar.xz
@@ -229,9 +229,9 @@ instDock
 update
 buildKernel
 clunk
-#bConnect
-#voice
-#fire
+#Connect
+voice
+fire
 #sut
 cleanUP
 build
