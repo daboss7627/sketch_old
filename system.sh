@@ -30,6 +30,7 @@ cd ~/work
 git clone -b wip/pp-keyboard https://github.com/smaeul/linux.git
 cd linux
 git pull
+cp ~/work/pineConfig ~/work/linux/.config
 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make defconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig
 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j4 bindeb-pkg KERNELRELEASE="5.9-sunxi64-test" KDEB_PKGVERSION="1"

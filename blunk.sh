@@ -4,6 +4,7 @@ MONK=~/work/sketch
 FILE=~/blunk
 BOBO=~/work
 YUM=/etc/sources.list.bak
+BUNCH=~/work/arduino-nightly
 
 echo Hello World
 
@@ -58,9 +59,9 @@ fi
 #}
 
 update() {
-list=/etc/apt/sources.list.d/mobian.list.bak
+LIST=/etc/apt/sources.list.d/mobian.list.bak
 #list=/etc/apt/sources.list.d/cros.list
-bunch=~/work/arduino-nightly
+
 echo "Updating System"
 sudo mount -o remount,rw /
 sudo apt update
@@ -71,8 +72,8 @@ sudo apt update
 #sudo dpkg --add-architecture armel
 #sudo dpkg --add-architecture arm64
 echo "Fixings"
-if [ -f "$list" ]; then
-    echo "$list exists."
+if [ -f "$LIST" ]; then
+    echo "$LIST exists."
     #sudo sed -i 's/\bdeb\b/& [arch=arm64,armhf]/' /etc/apt/sources.list.d/cros.list
     else
       #sudo mv /etc/apt/sources.list.d/cros.list /etc/apt/sources.list.d/cros.list.bak
@@ -110,8 +111,8 @@ echo " .. . . .."
 echo "  . . . . "
 echo "  . . . . "
 echo "... ... ..."
-if [ -f "$bunch" ]; then
-    echo "$bunch exists."
+if [ -f "$BUNCH" ]; then
+    echo "$BUNCH exists."
 else
 echo "Installing Arduino"
 wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/arduino-nightly-linux64.tar.xz
@@ -119,6 +120,8 @@ tar -xf ~/work/arduino-nightly-linux64.tar.xz
 sudo ~/work/arduino-nightly/install.sh
 arduino &
 fi
+wget -nc -O ~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
+tar -xvf ~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
 sudo apt -y remove brltty
 }
 
