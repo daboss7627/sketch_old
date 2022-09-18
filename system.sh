@@ -40,8 +40,11 @@ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j4 bindeb-pkg KERNELRELEASE="5
 skiffos() {
 cd ~/work
 git clone https://github.com/skiffos/SkiffOS.git
-cd skiffos
+cd SkiffOS
 git pull
+export SKIFF_CONFIG=pine64/phone,core/pinephone_manjaro_kde
+make configure
+make compile
 }
 
 
@@ -83,7 +86,7 @@ make firmware
 
 	kernel) kernel ;;
 
-	skiffos) skiff ;;
+	skiffos) skiffos ;;
 
 	arch) arch ;;
 
