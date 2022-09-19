@@ -57,7 +57,7 @@ git pull
 
 mayhem() {
 cd ~/work
-git clone --recurse-submodules -b master https://github.com/daboss7627/portapack-mayhem.git
+git clone --recurse-submodules https://github.com/daboss7627/portapack-mayhem.git
 cd portapack-mayhem
 git pull
 mkdir build
