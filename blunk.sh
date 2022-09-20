@@ -91,6 +91,7 @@ sudo apt update
 sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-tools-bluetooth kali-wallpapers-all revolt framework2 armitage msfpc recon-ng teamsploit gedit synaptic kali-defaults-desktop kali-desktop-xfce
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 #metasploit*
+sudo apt install steam*
 #sudo rm /etc/apt/sources.list
 #sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 #sudo mv /etc/apt/sources.list.temp /etc/sources.list
