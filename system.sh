@@ -11,7 +11,7 @@ read pine
 if [ $pine = 'pinephone' ]; then
     xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephone -x sid -o; bash"' -T "PinePhone" &
 else
-xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephonepro -x sid -o; bash"' -T "PinePhone Pro" &
+    xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephonepro -x sid -o; bash"' -T "PinePhone Pro" &
 fi
 }
 
