@@ -42,7 +42,8 @@ cd ~/work
 git clone https://github.com/skiffos/SkiffOS.git
 cd SkiffOS
 git pull
-export SKIFF_CONFIG=pine64/phone,core/pinephone_manjaro_kde
+#export SKIFF_CONFIG=pine64/phone,core/pinephone_manjaro_kde
+export SKIFF_CONFIG=core/pinephone_manjaro_phosh
 make configure
 make compile
 }
