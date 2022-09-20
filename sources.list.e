@@ -1,6 +1,6 @@
 
-deb http://deb.debian.org/debian/ sid main contrib non-free
-deb-src http://deb.debian.org/debian/ sid main contrib non-free
+deb https://deb.debian.org/debian/ sid main contrib non-free
+deb-src https://deb.debian.org/debian/ sid main contrib non-free
 
 #deb http://deb.debian.org/debian/ testing-updates contrib non-free
 #deb-src http://deb.debian.org/debian/ testing-updates contrib non-free
