@@ -111,7 +111,7 @@ if [ -f "$LOCK" ]; then
     echo "$LOCK exists."
 else
    echo "$LOCK doesnt exists."
-   sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/ubuntu-keys-$now.gpg
+   sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/$wall-keys-$now.gpg
 fi
 }
 

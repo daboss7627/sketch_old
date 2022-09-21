@@ -10,7 +10,7 @@ BOTCH=~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
 echo Hello World
 
 check() {
-if [ -f "$BOBO" ]; then
+if [ -e "$BOBO" ]; then
     echo "$BOBO exists."
 else
 mkdir ~/work
@@ -19,7 +19,7 @@ fi
 }
 
 down() {
-if [ -f "$MONK" ]; then
+if [ -e "$MONK" ]; then
     echo "$MONK exists."
 else
 sudo apt update
@@ -31,13 +31,13 @@ fi
 }
 
 mvSource() {
-if [ -f "$FILE" ]; then
+if [ -e "$FILE" ]; then
     echo "$FILE exists."
 else
     echo "$FILE does not exist."
     #mkdir -p Downz
     #wget -O Downz/sources.list https://raw.githubusercontent.com/shell832/pancake/main/sources.list
-if [ -f "$YUM" ]; then
+if [ -e "$YUM" ]; then
   echo "$YUM exists."
 else
   echo "$YUM does not exist"
@@ -73,7 +73,7 @@ sudo apt update
 #sudo dpkg --add-architecture armel
 #sudo dpkg --add-architecture arm64
 echo "Fixings"
-if [ -f "$LIST" ]; then
+if [ -e "$LIST" ]; then
     echo "$LIST exists."
     #sudo sed -i 's/\bdeb\b/& [arch=arm64,armhf]/' /etc/apt/sources.list.d/cros.list
     sudo sed -i 's/\bbookworm\b/& unstable/' /etc/apt/sources.list.d/mobian.list
@@ -91,18 +91,20 @@ sudo mv /etc/apt/sources.list /etc/apt/sources.list.temp
 sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 #sudo mv /etc/passwd /var/www/html && sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
-sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-tools-bluetooth kali-wallpapers-all revolt framework2 armitage msfpc recon-ng teamsploit gedit synaptic kali-defaults-desktop kali-desktop-xfce
+echo 'kali install tools'
+sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-wallpapers-all revolt framework2 armitage msfpc recon-ng teamsploit gedit synaptic kali-defaults-desktop kali-desktop-xfce
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
-sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 #metasploit*
-sudo apt -y install steam steam-launcher steam-devices steamcmd
+#sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 #metasploit*
+#sudo apt -y install steam:amd64
 sudo rm -r /etc/apt/sources.list
 #sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 sudo mv /etc/apt/sources.list.temp /etc/apt/sources.list
 #sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 sudo apt -y dist-upgrade
-sudo apt -y install software-properties-common gnupg lsb-release python3-yaml build-essential zip curl zlib1g-dev libc6-dev libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng curl gnupg-agent software-properties-common dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager curl nano screen hackrf dfu-util default-jdk python-is-python3 libgl1-mesa-dev libglib2.0-dev libglade2-dev dosfstools mtools putty gcc-12
-#sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client gcc-12-arm-linux-gnueabihf g++-12 g++-12-arm-linux-gnueabihf apt-transport-https ca-certificates fakeroot uuid-runtime uuid-dev uuid uuidcdef gcc-aarch64-linux-gnu apt-utils gitk git-gui xz-utils asciidoc
+sudo apt -y install gnupg python3-yaml zip curl libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng curl gnupg-agent dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager curl nano screen hackrf dfu-util default-jdk python-is-python3 dosfstools mtools putty gcc-12  
+#sudo apt -y install steam-launcher 
+#sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client gcc-12-arm-linux-gnueabihf g++-12 g++-12-arm-linux-gnueabihf apt-transport-https ca-certificates fakeroot uuid-runtime uuid-dev uuid uuidcdef gcc-aarch64-linux-gnu apt-utils gitk git-gui xz-utils asciidoc libc6-dev steam-devices steamcmd build-essential lsb-release software-properties-common libgl1-mesa-dev libglib2.0-dev libglade2-dev zlib1g-dev
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 #sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/gci.conf 
 #sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 
