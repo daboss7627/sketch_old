@@ -58,8 +58,8 @@ if [ $archz = 'add' ]; then             #add arch rou sources file direct
 	elif [ $archz = 'remove' ]; then
     ####remove all architecture except machines
     #rm != $MACHINE_TYPE
-	    sudo dpkg --add-architecture i386
-	    #sudo dpkg --remove-architecture i386
+	    #sudo dpkg --add-architecture i386
+	    sudo dpkg --remove-architecture i386
             sudo dpkg --remove-architecture armhf
             sudo dpkg --remove-architecture armel
             sudo dpkg --remove-architecture arm64
@@ -133,10 +133,13 @@ echo "Which List?"
 read wall
 if [ $wall = 'a' ]; then
     #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
+    sudo rm -r /etc/apt/sources.list
     sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
+    #sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/kali-keys-$now.gpg
     elif [ $wall = 'b' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
+        sudo rm -r /etc/apt/sources.list
         sudo cp ~/work/sketch/sources.list.b /etc/apt/sources.list
         echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
@@ -145,9 +148,11 @@ if [ $wall = 'a' ]; then
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+	#sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/ubuntu-keys-$now.gpg
     elif [ $wall == 'c' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
-        sudo cp ~/work/sketch/sources.list.c /etc/apt/sources.list
+	sudo rm -r /etc/apt/sources.list        
+	sudo cp ~/work/sketch/sources.list.c /etc/apt/sources.list
 	if [ -f "$LOCK" ]; then
     	echo "$LOCK exists."
 	else       
@@ -159,11 +164,12 @@ if [ $wall = 'a' ]; then
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 	echo "$LOCK doesnt exists."
-   	sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/ubuntu-keys-$now.gpg
+   	#sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/ubuntu-keys-$now.gpg
 	fi 
      #else
     elif [ $wall == 'd' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
+	sudo rm -r /etc/apt/sources.list
         sudo cp ~/work/sketch/sources.list.d /etc/apt/sources.list
         echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
@@ -174,6 +180,7 @@ if [ $wall = 'a' ]; then
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
     elif [ $wall == 'e' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
+	sudo rm -r /etc/apt/sources.list
         sudo cp ~/work/sketch/sources.list.e /etc/apt/sources.list
         echo "Adding GPG Keys"
         #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
@@ -184,11 +191,13 @@ if [ $wall = 'a' ]; then
         #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
     elif [ $wall == 'F' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
+	sudo rm -r /etc/apt/sources.list
         sudo cp ~/work/sketch/sources.list.F /etc/apt/sources.list
         echo "Adding GPG Keys"
         #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
     elif [ $wall == 'G' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
+	sudo rm -r /etc/apt/sources.list
         sudo cp ~/work/sketch/sources.list.G /etc/apt/sources.list
         echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
