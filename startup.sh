@@ -133,7 +133,7 @@ echo "Which List?"
 read wall
 if [ $wall = 'a' ]; then
     #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
-    sudo rm -r /etc/apt/sources.list
+    #sudo rm -r /etc/apt/sources.list
     sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
     #sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/kali-keys-$now.gpg
