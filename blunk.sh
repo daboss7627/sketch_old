@@ -118,9 +118,6 @@ echo "... ... ..."
 if [ -e "$BUNCH" ]; then
     echo "$BUNCH exists."
 else
-
-
-
 echo "Installing Arduino"
 
 arx64() {
@@ -151,7 +148,6 @@ arduino &
 	esac
 fi
 
-
 if [ -e "$BOTCH" ]; then
     echo "$BOTCH exists."
 else
@@ -179,6 +175,7 @@ tar -xvf ~/work/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aar
 	*) exit ;;
 
 	esac
+fi
 
 sudo apt -y remove brltty
 }
