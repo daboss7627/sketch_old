@@ -1,5 +1,6 @@
 #!/bin/bash
 
+exec > >(tee -ia ~/work/startup.log.txt)
 echo '
 #################################
 #####ByProduct of DemonWare######
@@ -32,7 +33,6 @@ U='$USER'
 LOCK=/etc/apt/trusted.gpg
 now=$(date +"%Y")
 
-exec > >(tee -ia '$BOBO'/startup.log.txt)
 echo "hola"
 
 check() {
