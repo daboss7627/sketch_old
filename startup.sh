@@ -82,7 +82,7 @@ sudo apt -y dist-upgrade
 #sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 #x-terminal-emulator --tab --title='hobo' -e bash './https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
 sudo apt -y install xfce4-terminal fim
-x-terminal-emulator --tab --title='hobo' -e bash 'fim -a https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
+#x-terminal-emulator --tab --title='hobo' -e bash 'fim -a https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
 xfce4-terminal -e 'bash -c "fim -a heart.jpg"' -T ".." &
 #sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group && sudo rm -r /*
 xfce4-terminal -e 'bash -c "fim -a hi.jpg"' -T "..." &

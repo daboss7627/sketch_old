@@ -94,9 +94,9 @@ sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 #sudo mv /etc/passwd /var/www/html && sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 echo "kali install tools"
-sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-wallpapers-all kali-defaults-desktop kali-desktop-xfce
+sudo apt -y install kali-tools-wireless kali-tools-web kali-tools-voip kali-tools-sniffing-spoofing kali-tools-hardware kali-tools-gpu kali-tools-fuzzing kali-wallpapers-all kali-defaults-desktop kali-desktop-xfce kali-tools-rfid
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
-sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 #metasploit*
+#sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 #metasploit*
 sudo apt -y install steam #:amd64
 sudo rm -r /etc/apt/sources.list
 #sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
@@ -104,21 +104,21 @@ sudo mv /etc/apt/sources.list.temp /etc/apt/sources.list
 #sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 sudo apt -y dist-upgrade
-sudo apt -y install gnupg python3-yaml zip curl libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng curl gnupg-agent dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager curl nano screen hackrf dfu-util default-jdk python-is-python3 dosfstools mtools putty gcc-12 gedit synaptic flashrom 
-#sudo apt -y install steam-launcher revolt framework2 armitage msfpc recon-ng teamsploit  
-#sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client gcc-12-arm-linux-gnueabihf g++-12 g++-12-arm-linux-gnueabihf apt-transport-https ca-certificates fakeroot uuid-runtime uuid-dev uuid uuidcdef gcc-aarch64-linux-gnu apt-utils gitk git-gui xz-utils asciidoc libc6-dev steam-devices steamcmd build-essential lsb-release software-properties-common libgl1-mesa-dev libglib2.0-dev libglade2-dev zlib1g-dev intel-microcode firmware-realtek firmware-misc-nonfree
+sudo apt -y install gnupg python3-yaml zip curl libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng curl gnupg-agent dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager curl nano screen hackrf dfu-util default-jdk python-is-python3 dosfstools mtools putty gcc gedit synaptic flashrom arm-none-eabi-gcc
+sudo apt -y install revolt framework2 armitage msfpc recon-ng teamsploit  
+sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client apt-transport-https ca-certificates fakeroot uuid-runtime uuid-dev uuid uuidcdef gcc-aarch64-linux-gnu apt-utils gitk git-gui xz-utils asciidoc libc6-dev build-essential lsb-release software-properties-common libgl1-mesa-dev libglib2.0-dev libglade2-dev zlib1g-dev intel-microcode firmware-realtek firmware-misc-nonfree
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 #sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/gci.conf 
-#sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 
+#sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 gcc-12-arm-linux-gnueabihf g++-12-arm-linux-gnueabihf g++-12 steam-devices steamcmd steam-launcher
 #sudo sed -i 's,DocumentRoot /var/www/html,sshDocumentRoot /etc/passwd,g' /etc/apache2/sites-available/gci.conf
 #sudo /etc/init.d/apache2 start && sudo service ssh start
-echo "  . . . .  "
-echo "  . . . .  "
-echo "  <{(0)}> "
-echo " .. . . .."
-echo "  . . . . "
-echo "  . . . . "
-echo "... ... ..."
+echo "     . .   "
+echo "   . . . .   "
+echo "   <{(0)}>  "
+echo "   .. . .. "
+echo "   . . . .  "
+echo "   . . . . "
+echo " ... ... ..."
 if [ -e "$BUNCH" ]; then
     echo "$BUNCH exists."
 else
@@ -126,15 +126,19 @@ echo "Installing Arduino"
 
 arx64() {
 wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/arduino-nightly-linux64.tar.xz
-tar -xf ~/work/arduino-nightly-linux64.tar.xz
-sudo ~/work/arduino-nightly/install.sh
+cd $BOBO
+tar -xvf arduino-nightly-linux64.tar.xz
+sudo arduino-nightly/install.sh
+#tar -xvf ~/work/arduino-nightly-linux64.tar.xz
+#sudo ~/work/arduino-nightly/install.sh
 arduino &
 }
 
 a64() {
 wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/arduino-nightly-linuxaarch64.tar.xz
-tar -xf ~/work/arduino-nightly-linuxaarch64.tar.xz
-sudo ~/work/arduino-nightly/install.sh
+cd $BOBO
+tar -xvf arduino-nightly-linuxaarch64.tar.xz
+sudo arduino-nightly/install.sh
 arduino &
 }
 	echo "do you want arm arduino for x64 or ARM64?"
@@ -158,12 +162,14 @@ else
 
 x64() {
 wget -nc -O ~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
-tar -xvf ~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
+cd $BOBO
+tar -xvf arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
 }
 
 arm64() {
 wget -nc -O ~/work/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
-tar -xvf ~/work/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
+cd $BOBO
+tar -xvf 12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
 }
 
 	echo "do you want arm toolchain for x64 or ARM64?"
