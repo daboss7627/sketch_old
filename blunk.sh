@@ -8,7 +8,7 @@ BUNCH=~/work/arduino-nightly
 BOTCH=~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
 
 #exec > $BOBO/blunk.log.txt
-exec > >(tee -ia $BOBO.blunk.txt)
+exec > >(tee -ia $BOBO/blunk.log.txt)
 echo Hello World
 
 check() {
