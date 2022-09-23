@@ -32,7 +32,7 @@ U='$USER'
 LOCK=/etc/apt/trusted.gpg
 now=$(date +"%Y")
 
-exec > >(tee -ia $BOBO/startup.log.txt)
+exec > >(tee -ia '$BOBO'/startup.log.txt)
 echo "hola"
 
 check() {
