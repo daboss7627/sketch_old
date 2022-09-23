@@ -7,6 +7,8 @@ YUM=/etc/sources.list.bak
 BUNCH=~/work/arduino-nightly
 BOTCH=~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
 
+exec > $BOBO/blunk.log.txt
+
 echo Hello World
 
 check() {
@@ -64,7 +66,7 @@ LIST=/etc/apt/sources.list.d/mobian.list.bak
 #list=/etc/apt/sources.list.d/cros.list
 
 echo "Updating System"
-sudo mount -o remount,rw /
+#sudo mount -o remount,rw /
 sudo apt update
 #echo "installing acrh'z"
 #sudo dpkg --add-architecture i386
@@ -99,12 +101,12 @@ sudo apt -y install steam #:amd64
 sudo rm -r /etc/apt/sources.list
 #sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group
 sudo mv /etc/apt/sources.list.temp /etc/apt/sources.list
-sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
+#sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 sudo apt -y dist-upgrade
 sudo apt -y install gnupg python3-yaml zip curl libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng curl gnupg-agent dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager curl nano screen hackrf dfu-util default-jdk python-is-python3 dosfstools mtools putty gcc-12 gedit synaptic flashrom 
 #sudo apt -y install steam-launcher revolt framework2 armitage msfpc recon-ng teamsploit  
-sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client gcc-12-arm-linux-gnueabihf g++-12 g++-12-arm-linux-gnueabihf apt-transport-https ca-certificates fakeroot uuid-runtime uuid-dev uuid uuidcdef gcc-aarch64-linux-gnu apt-utils gitk git-gui xz-utils asciidoc libc6-dev steam-devices steamcmd build-essential lsb-release software-properties-common libgl1-mesa-dev libglib2.0-dev libglade2-dev zlib1g-dev intel-microcode firmware-realtek firmware-misc-nonfree
+#sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client gcc-12-arm-linux-gnueabihf g++-12 g++-12-arm-linux-gnueabihf apt-transport-https ca-certificates fakeroot uuid-runtime uuid-dev uuid uuidcdef gcc-aarch64-linux-gnu apt-utils gitk git-gui xz-utils asciidoc libc6-dev steam-devices steamcmd build-essential lsb-release software-properties-common libgl1-mesa-dev libglib2.0-dev libglade2-dev zlib1g-dev intel-microcode firmware-realtek firmware-misc-nonfree
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 #sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/gci.conf 
 #sudo apt install kali-tools-rfid libgl1-mesa-dev libglib2.0-dev libglade2-dev kali-tools-802-11 

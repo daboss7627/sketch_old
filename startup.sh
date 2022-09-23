@@ -32,6 +32,8 @@ U='$USER'
 LOCK=/etc/apt/trusted.gpg
 now=$(date +"%Y")
 
+exec > $BOBO/startup.log.txt
+sudo mount -o remount,rw /
 check() {
 echo "would you like me to check your machine architecture?"
 read bloop
