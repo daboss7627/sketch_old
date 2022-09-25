@@ -15,6 +15,9 @@ else
 fi
 }
 
+kernel() {
+echo "building Linux Kernel"
+}
 
 ubuntu() {
 cd ~/work
@@ -25,7 +28,7 @@ sudo debos-docker -m 5G pinephone.yaml
 }
 
 
-kernel() {
+mobianKernel() {
 cd ~/work
 git clone -b wip/pp-keyboard https://github.com/smaeul/linux.git
 cd linux
@@ -73,9 +76,10 @@ make firmware
 #if [ $builder = 'yes' ]; then
 
 	echo "What system would you like to build?"
-	echo "Mobian		skiffOS"
-	echo "(Ubuntu) Touch	Arch linux"
-	echo "Mobian (Kernel)	portapack"
+	echo "Mobian			skiffOS"
+	echo "(Ubuntu) Touch		Arch linux"
+	echo "Mobian (mobianKernel)	portapack"
+	echo "Linux Kernel (Kernel)		 "
 
 	read systemz
 	case $systemz 
@@ -85,13 +89,15 @@ make firmware
 
 	ubuntu) ubuntu ;;
 
-	kernel) kernel ;;
+	mobianKernel) mobianKernel ;;
 
 	skiffos) skiffos ;;
 
 	arch) arch ;;
 
 	portapack) mayhem ;;
+
+	kernel) kernel ;;
 
 	*) exit ;;
 
