@@ -104,8 +104,8 @@ sudo apt -y install steam #:amd64
 #sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
 sudo apt update
 sudo apt -y dist-upgrade
-sudo apt -y install gnupg python3-yaml zip curl libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng curl gnupg-agent dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager curl nano screen hackrf dfu-util default-jdk python-is-python3 dosfstools mtools putty gcc gedit synaptic flashrom ufw build-essential lsb-release software-properties-common python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client apt-transport-https ca-certificates fakeroot uuid-runtime uuid-dev uuid uuidcdef intel-microcode firmware-realtek firmware-misc-nonfree 
-#sudo apt -y install revolt framework2 armitage msfpc recon-ng teamsploit  
+sudo apt -y install apt-utils software-properties-common gnupg lsb-release python-all python-all-dev python-all-dbg python3-all apache2 python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools ssh python3-pkg-resources python3-virtualenv python3-oauth2client build-essential zip curl zlib1g-dev libc6-dev libncurses5 x11proto-core-dev libx11-dev libxml2-utils xsltproc unzip fontconfig libncurses-dev gawk openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf sed make cmake binutils gcc-11 gcc-11-arm-linux-gnueabihf g++-11 g++-11-arm-linux-gnueabihf patch gzip bzip2 perl tar cpio unzip rsync file bc wget qt3d5-dev qt3d5-dev-tools gtk2-engines glade cvs git subversion rsync asciidoc w3m graphviz flex bison swig bmap-tools f2fs-tools qemu-system-x86 qemu-user-static binfmt-support squashfs-tools-ng apt-transport-https ca-certificates curl gnupg-agent software-properties-common dialog libgtk2.0-dev qemu-system libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager uuid uuidcdef gitk git-gui curl xz-utils nano screen fakeroot uuid-runtime uuid-dev hackrf libhackrf-dev dfu-util hacktv default-jdk python-is-python3 libgl1-mesa-dev libglib2.0-dev libglade2-dev
+#sudo apt -y install revolt framework2 armitage msfpc recon-ng teamsploit intel-microcode firmware-realtek firmware-misc-nonfree gcc-arm-none-eabi 
 #sudo apt install python-all python-all-dev python-all-dbg python3-all python3-all-dbg python3-all-dev lvm2 thin-provisioning-tools python3-pkg-resources python3-virtualenv python3-oauth2client apt-transport-https ca-certificates fakeroot uuid-runtime uuid-dev uuid uuidcdef gcc-aarch64-linux-gnu apt-utils gitk git-gui xz-utils asciidoc libc6-dev build-essential lsb-release software-properties-common libgl1-mesa-dev libglib2.0-dev libglade2-dev zlib1g-dev intel-microcode firmware-realtek firmware-misc-nonfree arm-none-eabi-gcc
 #sudo apt install kali-tools-rfid #::Sources disagree on hashes for supposely identical version '0.3.8+git20180720-2' of 'mfcuk:arm64'
 #sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/gci.conf 
@@ -161,11 +161,11 @@ if [ -e "$BOTCH" ]; then
 else
 
 x64() {
-wget -nc -O ~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
+wget -nc -O ~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz https://developer.arm.com/-/media/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
 cd $BOBO
 tar -xvf arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
-sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi"' ~/bashrc
-sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi/bin"' ~/bashrc
+sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi"' ~/.bashrc
+sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi/bin"' ~/.bashrc
 source ~/.bashrc
 }
 
@@ -173,8 +173,8 @@ arm64() {
 wget -nc -O ~/work/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
 cd $BOBO
 tar -xvf 12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
-sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi"' ~/bashrc
-sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi/bin"' ~/bashrc
+sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi"' ~/.bashrc
+sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi/bin"' ~/.bashrc
 source ~/.bashrc
 }
 
@@ -255,7 +255,7 @@ websockify -D --web=/usr/share/novnc/ --cert=/etc/ssl/novnc.pem 6080 localhost:5
 }
 
 voice() {
-curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v12.3.x/install_pbx_docker.sh|bash
+curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v12.6.x/install_pbx_docker.sh|bash
 sudo rm -r /etc/apt/sources.list.d/docker.list
 sudo docker container run -d --name portsip-pbx --restart=always --cap-add=SYS_PTRACE --network=host -v /var/lib/portsip:/var/lib/portsip -v /etc/localtime:/etc/localtime:ro -e POSTGRES_PASSWORD="123456" -e POSTGRES_LISTEN_ADDRESSES="*" -e IP_ADDRESS="618104708054-m0mqlm35l2ahieavnib6emtan2k95ps9.apps.googleusercontent.com" portsip/pbx:12
 #IP_ADDRESS="66.175.222.20" 

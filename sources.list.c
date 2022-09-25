@@ -51,24 +51,24 @@ deb-src http://security.ubuntu.com/ubuntu jammy-security multiverse
 
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy restricted main multiverse universe
-deb-src http://ports.ubuntu.com/ubuntu-ports jammy main multiverse restricted universe
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy restricted main multiverse universe
+#deb-src http://ports.ubuntu.com/ubuntu-ports jammy main multiverse restricted universe
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy-updates main universe restricted multiverse
-deb-src http://ports.ubuntu.com/ubuntu-ports jammy-updates main multiverse restricted universe
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy-updates main universe restricted multiverse
+#deb-src http://ports.ubuntu.com/ubuntu-ports jammy-updates main multiverse restricted universe
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy-security main universe restricted multiverse
-deb-src http://ports.ubuntu.com/ubuntu-ports jammy-security main multiverse restricted universe
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy-security main universe restricted multiverse
+#deb-src http://ports.ubuntu.com/ubuntu-ports jammy-security main multiverse restricted universe
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy-proposed main universe restricted multiverse
-deb-src http://ports.ubuntu.com/ubuntu-ports jammy-proposed main multiverse restricted universe
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy-proposed main universe restricted multiverse
+#deb-src http://ports.ubuntu.com/ubuntu-ports jammy-proposed main multiverse restricted universe
 
 
-deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy-backports main multiverse restricted universe
-deb-src http://ports.ubuntu.com/ubuntu-ports jammy-backports main multiverse restricted universe
+#deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports jammy-backports main multiverse restricted universe
+#deb-src http://ports.ubuntu.com/ubuntu-ports jammy-backports main multiverse restricted universe
 
 
 
