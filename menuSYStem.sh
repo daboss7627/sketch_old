@@ -1,27 +1,120 @@
 #!/bin/bash
 
+MONK=~/work/sketch
+FILE=~/blunk
+BOBO=~/work
+BUNCH=~/work/arduino-nightly
+BOTCH=~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
 
+arduino() {
+if [ -e "$BUNCH" ]; then
+    echo "$BUNCH exists."
+else
+echo "Installing Arduino"
+
+arx64() {
+wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/arduino-nightly-linux64.tar.xz
+cd $BOBO
+tar -xvf arduino-nightly-linux64.tar.xz
+sudo arduino-nightly/install.sh
+#tar -xvf ~/work/arduino-nightly-linux64.tar.xz
+#sudo ~/work/arduino-nightly/install.sh
+arduino &
+}
+
+a64() {
+wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/arduino-nightly-linuxaarch64.tar.xz
+cd $BOBO
+tar -xvf arduino-nightly-linuxaarch64.tar.xz
+sudo arduino-nightly/install.sh
+arduino &
+}
+	echo "do you want arm arduino for x64 or ARM64?"
+	echo "arx64 or a64?"
+	read duino
+	case $duino 
+	in
+
+	arx64) arx64 ;;
+
+	a64) a64 ;;
+
+	*) exit ;;
+
+	esac
+fi
+}
+
+arm() {
+if [ -e "$BOTCH" ]; then
+    echo "$BOTCH exists."
+else
+
+x64() {
+wget -nc -O ~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz https://developer.arm.com/-/media/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
+cd $BOBO
+tar -xvf arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
+sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi"' ~/.bashrc
+sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi/bin"' ~/.bashrc
+source ~/.bashrc
+}
+
+arm64() {
+wget -nc -O ~/work/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
+cd $BOBO
+tar -xvf 12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
+sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi"' ~/.bashrc
+sed -i -e '$aexport PATH="$PATH:~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi/bin"' ~/.bashrc
+source ~/.bashrc
+}
+
+	echo "do you want arm toolchain for x64 or ARM64?"
+
+	read chain
+	case $chain 
+	in
+
+	x64) x64 ;;
+
+	arm64) arm64 ;;
+
+	*) exit ;;
+
+	esac
+fi
+}
+
+dev() {
+xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./startup.sh; bash"' -T "Start Up" &
+}
+
+system() {
+xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./system.sh; bash"' -T "Build System" &
+}
+
+terminal() {
+xfce4-terminal -e 'bash -c "cd ~/work/sketch; sudo apt install cmatrix; bash"' -T "Matrix" & 
+#xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./terminal.py; bash"' -T "Matrix" &
+}
 
 	echo "What would you like to do?"
 	echo "install (Dev) Enviroment	,,	Build a (System)"
-	echo "Install Arduino	,,	Install GCC ARM Toolchains"
-	echo "Mobian (Kernel)	portapack"
+	echo "Install (Arduino)	,,	Install GCC (ARM) Toolchains"
+	echo "Custom (Terminal)"
 
 	read env
 	case $env 
 	in
 
-	mobian) mobian ;;
+	arduino) arfduino ;;
 
-	ubuntu) ubuntu ;;
+	arm) arm ;;
 
-	kernel) kernel ;;
+	dev) dev ;;
 
-	skiffos) skiffos ;;
+	system) system ;;
 
-	arch) arch ;;
-
-	portapack) mayhem ;;
+	terminal) terminal ;;
 
 	*) exit ;;
 
