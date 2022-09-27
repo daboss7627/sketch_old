@@ -100,13 +100,13 @@ xfce4-terminal -e 'bash -c "cd ~/work/sketch; sudo apt install cmatrix; bash"' -
 	echo "What would you like to do?"
 	echo "install (Dev) Enviroment	,,	Build a (System)"
 	echo "Install (Arduino)	,,	Install GCC (ARM) Toolchains"
-	echo "Custom (Terminal)"
+	echo "Custom (Terminal) ,, 	or (Exit)"
 
 	read env
 	case $env 
 	in
 
-	arduino) arfduino ;;
+	arduino) arduino ;;
 
 	arm) arm ;;
 
