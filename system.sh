@@ -70,6 +70,20 @@ cmake ..
 make firmware
 }
 
+armbian() {
+cd ~/work
+https://github.com/daboss7627/build.git
+cd build
+./compile.sh \
+BOARD=orangepizero \
+BRANCH=current \
+RELEASE=jammy \
+BUILD_MINIMAL=yes \
+BUILD_DESKTOP=yes \
+KERNEL_ONLY=no \
+KERNEL_CONFIGURE=no \
+CARD_DEVICE="/dev/sdb"
+}
 
 #echo "Do you want to build a system?"
 #read builder
@@ -79,11 +93,13 @@ make firmware
 	echo "Mobian			skiffOS"
 	echo "(Ubuntu) Touch		Arch linux"
 	echo "Mobian (mobianKernel)	portapack"
-	echo "Linux Kernel (Kernel)		 "
+	echo "Linux Kernel (Kernel)	Armbian"
 
 	read systemz
 	case $systemz 
 	in
+
+	armbian) armbian ;;
 
 	mobian) mobian ;;
 

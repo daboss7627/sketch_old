@@ -139,6 +139,7 @@ wget -nc -O ~/work/arduino-nightly-linux64.tar.xz https://downloads.arduino.cc/a
 cd $BOBO
 tar -xvf arduino-nightly-linuxaarch64.tar.xz
 sudo arduino-nightly/install.sh
+cp -r ~/work/sketch/Filez/Arduino ~
 arduino &
 }
 	echo "do you want arm arduino for x64 or ARM64?"
