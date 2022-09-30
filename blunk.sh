@@ -131,6 +131,7 @@ tar -xvf arduino-nightly-linux64.tar.xz
 sudo arduino-nightly/install.sh
 #tar -xvf ~/work/arduino-nightly-linux64.tar.xz
 #sudo ~/work/arduino-nightly/install.sh
+cp -r ~/work/sketch/Filez/Arduino ~
 arduino &
 }
 
