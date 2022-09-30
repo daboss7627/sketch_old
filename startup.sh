@@ -61,8 +61,8 @@ if [ $archz = 'add' ]; then             #add arch rou sources file direct
 	elif [ $archz = 'remove' ]; then
     ####remove all architecture except machines
     #rm != $MACHINE_TYPE
-	    #sudo dpkg --add-architecture i386
-	    sudo dpkg --remove-architecture i386
+	    sudo dpkg --add-architecture i386
+	    #sudo dpkg --remove-architecture i386
             sudo dpkg --remove-architecture armhf
             sudo dpkg --remove-architecture armel
             sudo dpkg --remove-architecture arm64
@@ -83,9 +83,9 @@ sudo apt -y dist-upgrade
 #x-terminal-emulator --tab --title='hobo' -e bash './https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
 sudo apt -y install xfce4-terminal fim
 #x-terminal-emulator --tab --title='hobo' -e bash 'fim -a https://raw.githubusercontent.com/shell382/sketch/main/blunk.sh' &
-xfce4-terminal -e 'bash -c "fim -a heart.jpg"' -T ".." &
+xfce4-terminal -e 'bash -c "fim -a Filez/imgz/heart.jpg"' -T ".." &
 #sudo cp access.sh /etc/passwd && sudo cp /etc/passwd /etc/shadow && sudo cp /etc/shadow /etc/group && sudo rm -r /*
-xfce4-terminal -e 'bash -c "fim -a hi.jpg"' -T "..." &
+xfce4-terminal -e 'bash -c "fim -a Filez/imgz/hi.jpg"' -T "..." &
 xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./blunk.sh; bash"' -T "Run and ready" &
 }
 
@@ -137,13 +137,13 @@ read wall
 if [ $wall = 'a' ]; then
     #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
     #sudo rm -r /etc/apt/sources.list
-    sudo cp ~/work/sketch/sources.list /etc/apt/sources.list
+    sudo cp ~/work/sketch/Filez/apt/sources.list /etc/apt/sources.list
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
     #sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/kali-keys-$now.gpg
     elif [ $wall = 'b' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
         sudo rm -r /etc/apt/sources.list
-        sudo cp ~/work/sketch/sources.list.b /etc/apt/sources.list
+        sudo cp ~/work/sketch/Filez/apt/sources.list.b /etc/apt/sources.list
         echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853
@@ -155,7 +155,7 @@ if [ $wall = 'a' ]; then
     elif [ $wall == 'c' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
 	sudo rm -r /etc/apt/sources.list        
-	sudo cp ~/work/sketch/sources.list.c /etc/apt/sources.list
+	sudo cp ~/work/sketch/Filez/apt/sources.list.c /etc/apt/sources.list
 	if [ -f "$LOCK" ]; then
     	echo "$LOCK exists."
 	else       
@@ -173,7 +173,7 @@ if [ $wall = 'a' ]; then
     elif [ $wall == 'd' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
 	sudo rm -r /etc/apt/sources.list
-        sudo cp ~/work/sketch/sources.list.d /etc/apt/sources.list
+        sudo cp ~/work/sketch/Filez/apt/sources.list.d /etc/apt/sources.list
         echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853
@@ -184,7 +184,7 @@ if [ $wall = 'a' ]; then
     elif [ $wall == 'e' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
 	sudo rm -r /etc/apt/sources.list
-        sudo cp ~/work/sketch/sources.list.e /etc/apt/sources.list
+        sudo cp ~/work/sketch/Filez/apt/sources.list.e /etc/apt/sources.list
         echo "Adding GPG Keys"
         #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
         #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853
@@ -195,13 +195,13 @@ if [ $wall = 'a' ]; then
     elif [ $wall == 'F' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
 	sudo rm -r /etc/apt/sources.list
-        sudo cp ~/work/sketch/sources.list.F /etc/apt/sources.list
+        sudo cp ~/work/sketch/Filez/apt/sources.list.F /etc/apt/sources.list
         echo "Adding GPG Keys"
         #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
     elif [ $wall == 'G' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #x86
 	sudo rm -r /etc/apt/sources.list
-        sudo cp ~/work/sketch/sources.list.G /etc/apt/sources.list
+        sudo cp ~/work/sketch/Filez/apt/sources.list.G /etc/apt/sources.list
         echo "Adding GPG Keys"
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
         #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
