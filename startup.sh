@@ -36,6 +36,8 @@ now=$(date +"%Y")
 echo "hola"
 
 check() {
+echo "Would you like me to check version of linux?"
+read hooch #depending on linux version switches packages and/or package manager like if its kali linux or arch linux
 echo "would you like me to check your machine architecture?"
 read bloop
 if [ $bloop = 'yes' ]; then
@@ -100,32 +102,32 @@ xfce4-terminal -e 'bash -c "cd ~/work/sketch; ./blunk.sh; bash"' -T "Run and rea
 #        echo "$MACHINE_TYPE does not exist on your filesystem."
 #else
 #    echo "Device Exists"
-#    if [ ! -f /dev/sda ]; then
+#    if [ ! -e /dev/sda ]; then
 #        echo "SDA"
-#        elif [ ! -f /dev/sdb ]; then
+#        elif [ ! -e /dev/sdb ]; then
 #            echo "SDB"
-#            elif [ ! -f /dev/sdc ]; then
+#            elif [ ! -e /dev/sdc ]; then
 #                echo "SDC"
 #fi
 #}
 
 key() {
-if [ -f "$LOCK" ]; then
+if [ -e "$LOCK" ]; then
     echo "$LOCK exists."
 else
    echo "$LOCK doesnt exists."
-   sudo mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/$wall-keys-$now.gpg
+   sudo mv /etc/apt/trusted.gpg /usr/share/keyrings/$wall-keys-$now.gpg
 fi
 }
 
 yab() {
-if [ -f "$FILE" ]; then
+if [ -e "$FILE" ]; then
     echo "$FILE exists."
 else
     echo "$FILE does not exist."
     #wget -O sources.list https://raw.githubusercontent.com/shell832/pancake/main/sources.list
     #wget -O sources.list https://raw.githubusercontent.com/shell382/sketch/main/sources.list
-if [ -f "$YUM" ]; then
+if [ -e "$YUM" ]; then
   echo "$YUM exists."
 else
   sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
@@ -156,7 +158,7 @@ if [ $wall = 'a' ]; then
         #sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #Kali
 	sudo rm -r /etc/apt/sources.list        
 	sudo cp ~/work/sketch/Filez/apt/sources.list.c /etc/apt/sources.list
-	if [ -f "$LOCK" ]; then
+	if [ -e "$LOCK" ]; then
     	echo "$LOCK exists."
 	else       
 	echo "Adding GPG Keys"
