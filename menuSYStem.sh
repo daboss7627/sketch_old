@@ -67,8 +67,8 @@ x64() {
 wget -nc -O ~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz https://developer.arm.com/-/media/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
 cd $BOBO
 tar -xvf arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi.tar.xz
-sed -i -e '$aexport PATH=~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi:$PATH' ~/.bashrc
-sed -i -e '$aexport PATH=~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi/bin:$PATH' ~/.bashrc
+sed -i -e '$aPATH="$HOME/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi:$PATH"' ~/.bashrc
+sed -i -e '$aPATH="$HOME/work/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi/bin:$PATH"' ~/.bashrc
 source ~/.bashrc
 }
 
@@ -76,8 +76,8 @@ arm64() {
 wget -nc -O ~/work/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
 cd $BOBO
 tar -xvf 12.2.mpacbti-bet1/binrel/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi.tar.xz
-sed -i -e '$aexport PATH=~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi:$PATH' ~/.bashrc
-sed -i -e '$aexport PATH=~/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi/bin:$PATH' ~/.bashrc
+sed -i -e '$aPATH="$HOME/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi:$PATH"' ~/.bashrc
+sed -i -e '$aPATH="$HOME/work/arm-gnu-toolchain-12.2.mpacbti-bet1-aarch64-arm-none-eabi/bin:$PATH"' ~/.bashrc
 source ~/.bashrc
 }
 

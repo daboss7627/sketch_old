@@ -9,9 +9,9 @@ git pull
 echo "pinephone or pinephone (pro)"
 read pine
 if [ $pine = 'pinephone' ]; then
-    xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephone -o; bash"' -T "PinePhone" &
+    xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephone -o -x sid -S unstable; bash"' -T "PinePhone" &
 else
-    xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephonepro -o; bash"' -T "PinePhone Pro" &
+    xfce4-terminal -e 'bash -c "cd ~/work/mobian-recipes; sudo ./build.sh -d -t pinephonepro -o -x sid -S unstable; bash"' -T "PinePhone Pro" &
 fi
 }
 
