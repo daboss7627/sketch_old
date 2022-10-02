@@ -16,6 +16,8 @@ else
     git clone https://github.com/daboss7627/sketch.git
 fi
 
+sudo apt update
+sudo apt install xfce4-terminal
 
 arduino() {
 if [ -e "$BUNCH" ]; then
