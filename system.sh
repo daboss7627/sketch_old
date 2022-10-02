@@ -70,6 +70,17 @@ cmake ..
 make firmware
 }
 
+carnage() {
+cd ~/work
+git clone --recurse-submodules https://github.com/daboss7627/portapack-carnage.git
+cd portapack-carnage
+git pull
+mkdir build
+cd build
+cmake ..
+make firmware
+}
+
 armbian() {
 cd ~/work
 https://github.com/daboss7627/build.git
@@ -94,6 +105,7 @@ CARD_DEVICE="/dev/sdb"
 	echo "(Ubuntu) Touch		Arch linux"
 	echo "Mobian (mobianKernel)	portapack"
 	echo "Linux Kernel (Kernel)	Armbian"
+        echo "portapack-(carnage)			 "
 
 	read systemz
 	case $systemz 
@@ -112,6 +124,8 @@ CARD_DEVICE="/dev/sdb"
 	arch) arch ;;
 
 	portapack) mayhem ;;
+	
+	carnage) carnage ;; #automatic merge mayhem and carnage
 
 	kernel) kernel ;;
 
